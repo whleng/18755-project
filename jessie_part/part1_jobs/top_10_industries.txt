@@ -1,0 +1,153 @@
+Top 10 industries with the most job postings:
+                             industry_name  postings_count
+industry_id                                               
+14               Hospitals and Health Care           17762
+27                                  Retail           10731
+96           IT Services and IT Consulting           10039
+104                Staffing and Recruiting            8261
+43                      Financial Services            7964
+4                     Software Development            4852
+25                           Manufacturing            3550
+48                            Construction            3305
+41                                 Banking            2745
+42                               Insurance            2576
+
+Top 10 job titles for industry: Hospitals and Health Care
+title
+Registered Nurse                            172
+Patient Care Technician                     110
+Licensed Therapist for Online Counseling     94
+Certified Nursing Assistant (CNA)            73
+Phlebotomist                                 73
+Nurse Practitioner                           71
+Medical Assistant                            65
+Licensed Practical Nurse (LPN)               60
+Physical Therapist                           59
+Registered Nurse (RN)                        58
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Retail
+title
+ASSISTANT STORE MANAGER            161
+Sales Associate                    149
+Receptionist                       135
+Customer Service Representative    134
+Retail Sales Associate             116
+OPERATIONS ASSISTANT MANAGER       114
+Store Manager                      113
+CUSTOMER SERVICE REPRESENTATIVE    107
+Salesperson                        107
+Assistant Store Manager             98
+Name: count, dtype: int64
+
+Top 10 job titles for industry: IT Services and IT Consulting
+title
+Senior Software Engineer    52
+Business Analyst            48
+Project Manager             42
+Software Engineer           40
+Technical Lead              34
+DevOps Engineer             29
+Data Engineer               29
+Field Service Technician    25
+Developer                   24
+Network Engineer            24
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Staffing and Recruiting
+title
+Registered Nurse - RN - LTAC               130
+Board Certified Behavior Analyst (BCBA)     70
+Med-Surg Registered Nurse                   37
+Nurse - LPN - LTC                           32
+Emergency Room Registered Nurse             32
+Telemetry Registered Nurse                  30
+CT Technologist                             28
+Physical Therapist Assistant (PTA)          28
+Administrative Assistant                    26
+Account Executive                           26
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Financial Services
+title
+Sales Manager                       594
+Receptionist                        123
+Financial Advisor                    81
+Mortgage Loan Officer                78
+US Experienced Financial Advisor     69
+Associate Team Leader                30
+Administrative Assistant             24
+Assistant Manager                    22
+Teller                               22
+Executive Assistant                  22
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Software Development
+title
+Software Engineer                      62
+Data Analyst                           49
+Senior Software Engineer               42
+Software Developer                     42
+Frontend Developer                     39
+Back End Developer                     35
+Sales Development Representative       31
+Account Executive                      31
+Web Developer                          30
+Business Development Representative    24
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Manufacturing
+title
+Merchandiser                       31
+Senior Accountant                  24
+Quality Engineer                   21
+Controller                         20
+Human Resources Manager            18
+Manufacturing Engineer             16
+Staff Accountant                   16
+Process Engineer                   14
+Customer Service Representative    14
+Human Resources Generalist         13
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Construction
+title
+Project Manager                 66
+Construction Superintendent     52
+Construction Project Manager    51
+Project Engineer                37
+HVACR Service Technician        30
+Superintendent                  28
+Estimator                       28
+Assistant Project Manager       24
+Construction Estimator          22
+Controller                      22
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Banking
+title
+Relationship Banker                          34
+Teller                                       19
+Universal Banker                             14
+Branch Manager                               13
+Associate Banker                             10
+Senior Lead Business Execution Consultant    10
+Wealth Management Client Associate            9
+Lead Business Execution Consultant            7
+Project Manager                               7
+Teller I                                      7
+Name: count, dtype: int64
+
+Top 10 job titles for industry: Insurance
+title
+Account Specialist II                      21
+Customer Service Representative            16
+Commercial Lines Account Manager           15
+Account Executive                          13
+Insurance Agent                            10
+Senior Accountant                          10
+Sales Agent                                10
+Personal Lines Account Manager             10
+Registered Nurse, Home Health Full Time     9
+Licensed Insurance Sales Agent              9
+Name: count, dtype: int64
