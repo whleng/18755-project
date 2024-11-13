@@ -1,0 +1,56 @@
+================ Part (a) ================
+
+Community 1: 31 nodes
+Top 10 nodes by degree:
+Node: communication, Degree: 94
+Node: leadership, Degree: 92
+Node: problem-solving, Degree: 92
+Node: innovation, Degree: 91
+Node: organization, Degree: 91
+Node: collaboration, Degree: 90
+Node: planning, Degree: 88
+Node: flexibility, Degree: 87
+Node: teamwork, Degree: 86
+Node: interpersonal, Degree: 85
+=========================================
+
+Community 2: 2 nodes
+Top 10 nodes by degree:
+Node: cybersecurity, Degree: 76
+Node: resilience, Degree: 65
+=========================================
+
+Community 3: 11 nodes
+Top 10 nodes by degree:
+Node: testing, Degree: 91
+Node: automation, Degree: 89
+Node: scripting, Degree: 86
+Node: hardware, Degree: 84
+Node: debugging, Degree: 82
+Node: networking, Degree: 81
+Node: virtualization, Degree: 64
+Node: ansible, Degree: 63
+Node: bash, Degree: 60
+Node: vue, Degree: 47
+=========================================
+
+Community 4: 47 nodes
+Top 10 nodes by degree:
+Node: sql, Degree: 91
+Node: writing, Degree: 91
+Node: agile, Degree: 90
+Node: programming, Degree: 89
+Node: devops, Degree: 86
+Node: python, Degree: 85
+Node: java, Degree: 83
+Node: javascript, Degree: 83
+Node: algorithms, Degree: 80
+Node: nosql, Degree: 78
+=========================================
+
+Community 5: 3 nodes
+Top 10 nodes by degree:
+Node: go, Degree: 83
+Node: blockchain, Degree: 62
+Node: rust, Degree: 44
+=========================================

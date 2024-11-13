@@ -1,0 +1,16 @@
+The following text file indicates an analysis on the communities. 
+We try to find a common topic that explains the following communities. 
+
+Analyzing the different communities:
+
+- Community 1: Soft skills
+- Community 2: Cybersecurity and resilience
+- Community 3: Testing and debugging skills (testing, debugging, networking)
+- Community 4: Application Development skills
+- Community 5: Blockchain, Distributed systems skills
+
+The next step might be to find overlaps between the communities, and try to:
+1) Derive which communities might be more related to each other
+2) Find the nodes within overlapping communities and figure out why they 
+
+How can I get complementary skills from this? 
