@@ -1,69 +1,108 @@
-"""
-This file uses Louvain clustering to cluster the graph into different communities.
-
-We will then analyze the graph and 
-"""
-
 import networkx as nx
+import plotly.graph_objs as go
 import numpy as np
-import matplotlib.pyplot as plt
 
-# Reading the graph
+# Read the graph
 G = nx.read_gml('../../graphs/skills_graph.gml')
 
-# (a) Forming the louvain communities and saving the graph
+# Perform Louvain clustering
 communities = nx.algorithms.community.louvain_communities(G, seed=18755)
 
+# Create a 3D layout for the graph
+pos_3d = nx.spring_layout(G, dim=3, seed=42)  # 3D spring layout
 
-top_nodes = []
+# Normalize positions for Plotly
+node_x = np.array([pos_3d[node][0] for node in G.nodes])
+node_y = np.array([pos_3d[node][1] for node in G.nodes])
+node_z = np.array([pos_3d[node][2] for node in G.nodes])
 
-# Part (a): Print the number of nodes in each community.
-# In addition, print the labels of the top 10 nodes with the highest
-# degree of each community
-print("================ Part (a) ================\n")
+# Generate colors for nodes with gradual color change based on their community
+color_gradient = [
+    "#FF9999",  # Light red
+    "#FFCC99",  # Peach
+    "#FFFF99",  # Light yellow
+    "#CCFF99",  # Light green
+    "#99FFCC",  # Aquamarine
+    "#99CCFF",  # Light blue
+    "#CC99FF",  # Lavender
+    "#FF99CC",  # Pink
+    "#FF6666",  # Red
+    "#66B2FF",  # Sky blue
+]
+
+node_colors = []
+node_size = 15  # Larger node size for better visibility
+
 for i, community in enumerate(communities):
-    community_subgraph = G.subgraph(community)
-    print(f"Community {i+1}: {len(community)} nodes")
-
-    # Sort based on their degrees
-    # x[1] in the lambda function gives you the degree
-    top_10_nodes = sorted(
-        [(node, G.degree[node]) for node in community],
-         key=lambda x: x[1], 
-         reverse=True)[:10]
-
-    # For part (c): Remove the other nodes that are not in the top_10
-    for node, degree in top_10_nodes:
-        top_nodes.append(node)
-
-    # Printing the top 10 nodes
-    print("Top 10 nodes by degree:")
-    for node, degree in top_10_nodes:
-        print(f"Node: {node}, Degree: {degree}")
-    print("=========================================\n")
-
-top_graph = G.subgraph(top_nodes)
-colors = ['red', 'lightblue', 'green', 'yellow', 'pink']
-# Create a color map for the nodes based on their community assignment
-
-# Create a color map dictionary to store the color for each node in the top graph
-color_map = {}
-for i, community in enumerate(communities):
-    community_color = colors[i % len(colors)]
+    community_color = color_gradient[i % len(color_gradient)]  # Cycle through gradient colors
     for node in community:
-        if node in top_nodes:  # Only add color for nodes in the top_nodes subgraph
-            color_map[node] = community_color
+        node_colors.append(community_color)  # Assign the community's color to each node
 
-# Generate a list of colors in the correct order for the top_graph nodes
-node_colors = [color_map[node] for node in top_graph.nodes]
+# Create edge traces with color based on edge weights
+edge_x = []
+edge_y = []
+edge_z = []
+edge_weights = []
 
-# Visualize the network
-plt.figure(figsize=(12, 12))
-# Spring layout for better readability
-pos = nx.spring_layout(top_graph, seed=42)
-nx.draw_networkx_nodes(top_graph, pos, node_color=node_colors, node_size=2000)
-nx.draw_networkx_edges(top_graph, pos, alpha=0.5)
-nx.draw_networkx_labels(top_graph, pos, font_size=8, font_family="sans-serif")
+# Normalize edge weights for coloring
+max_weight = max(nx.get_edge_attributes(G, "weight").values(), default=1)
+min_weight = min(nx.get_edge_attributes(G, "weight").values(), default=0)
 
-plt.title("Top 10 Nodes by Degree in Each Community")
-plt.savefig("figures/louvain_visualization.jpg")
+for edge in G.edges(data=True):
+    x0, y0, z0 = pos_3d[edge[0]]
+    x1, y1, z1 = pos_3d[edge[1]]
+    edge_x.extend([x0, x1, None])  # None separates each line segment
+    edge_y.extend([y0, y1, None])
+    edge_z.extend([z0, z1, None])
+    # Normalize edge weight for coloring
+    weight = edge[2].get("weight", 1)
+    normalized_weight = (weight - min_weight) / (max_weight - min_weight)
+    edge_weights.append(normalized_weight)
+
+# Map normalized weights to colors
+edge_colors = [
+    f"rgba({255 - int(w * 255)}, {int(w * 255)}, 150, 0.8)" for w in edge_weights
+]
+
+edge_trace = go.Scatter3d(
+    x=edge_x,
+    y=edge_y,
+    z=edge_z,
+    mode="lines",
+    line=dict(width=2, color=edge_colors),
+    hoverinfo="none",
+)
+
+# Create node traces with uniform sizes and interactive labels
+node_trace = go.Scatter3d(
+    x=node_x,
+    y=node_y,
+    z=node_z,
+    mode="markers+text",  # Add both markers and labels
+    marker=dict(
+        size=node_size,
+        color=node_colors,
+        opacity=0.8,
+        line=dict(width=0.5, color="black"),  # Add border to nodes for better visibility
+    ),
+    text=[f"{node}" for node in G.nodes],  # Node labels
+    textposition="top center",  # Position the labels above the nodes
+    hoverinfo="text",  # Show node details on hover
+)
+
+# Create the layout
+layout = go.Layout(
+    title="3D Interactive Louvain Communities with Weighted Edges and Labeled Nodes",
+    titlefont=dict(size=16),
+    showlegend=False,
+    scene=dict(
+        xaxis=dict(showbackground=True, backgroundcolor="white", showgrid=False, showticklabels=False),
+        yaxis=dict(showbackground=True, backgroundcolor="white", showgrid=False, showticklabels=False),
+        zaxis=dict(showbackground=True, backgroundcolor="white", showgrid=False, showticklabels=False),
+    ),
+    margin=dict(l=0, r=0, b=0, t=40),
+)
+
+# Combine traces and plot
+fig = go.Figure(data=[edge_trace, node_trace], layout=layout)
+fig.show()

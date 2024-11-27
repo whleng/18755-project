@@ -55,11 +55,12 @@ for node, cluster_id in zip(nodes, clusters):
         community_dict[cluster_id] = []
     community_dict[cluster_id].append(node)
 
+print(f"Cut threshold: {cut_threshold}\n")
+
 print("================ Community Analysis ================\n")
 for i, (cluster_id, community_nodes) in enumerate(community_dict.items(), 1):
     community_subgraph = G.subgraph(community_nodes)
     print(f"Community {i}: {len(community_nodes)} nodes")
-    print(f"Cut threshold: {cut_threshold}")
     
     # Sort nodes by degree and select top 10 by degree within the community
     top_10_nodes = sorted(
