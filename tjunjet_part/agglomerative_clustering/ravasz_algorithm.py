@@ -9,7 +9,9 @@ from scipy.cluster.hierarchy import linkage, dendrogram, fcluster
 from scipy.spatial.distance import pdist
 
 # Load the graph
-G = nx.read_gml('../../graphs/skills_graph.gml')
+# G = nx.read_gml('../../graphs/skills_graph.gml')
+G = nx.read_gml('../../graphs/tech_skills_graph.gml')
+
 
 # Define the similarity metric based on Ravasz's idea:
 # similarity = common_neighbors / minimum degree
@@ -73,3 +75,15 @@ for i, (cluster_id, community_nodes) in enumerate(community_dict.items(), 1):
     for node, degree in top_10_nodes:
         print(f"Node: {node}, Degree: {degree}")
     print("=========================================\n")
+
+
+# Store the skill and their clusters into a txt file
+output_file = "figures/skills_to_clusters.txt"
+
+with open(output_file, "w") as file:
+    file.write("Skill Name\tCluster Number\n")  
+    for cluster_id, skills in community_dict.items():
+        for skill in skills:
+            file.write(f"{skill}\t{cluster_id}\n")
+
+print(f"Mapping has been saved to {output_file}")
