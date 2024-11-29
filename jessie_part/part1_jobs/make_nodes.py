@@ -3,7 +3,7 @@ from collections import Counter
 
 # Load the necessary CSV files
 postings_parsed_software_dev = pd.read_csv('postings_parsed_software_development.csv')
-postings = pd.read_csv('../mappings/postings.csv')
+postings = pd.read_csv('../../../mappings/postings.csv')
 
 # Merge the two DataFrames to include titles for the Software Development jobs
 postings_parsed_software_dev = pd.merge(postings_parsed_software_dev, postings[['job_id', 'title']], on='job_id', how='left')
@@ -18,13 +18,13 @@ grouped_postings['skills_list'] = grouped_postings['skills'].apply(lambda x: x.r
 all_skills = [skill.strip() for sublist in grouped_postings['skills_list'] for skill in sublist if skill.strip()]  # Remove extra spaces
 skill_counts = Counter(all_skills)
 
-# Get the top 10 most common skills
-top_10_skills = [skill for skill, _ in skill_counts.most_common(10)]
+# # Get the top 10 most common skills
+# top_10_skills = [skill for skill, _ in skill_counts.most_common(10)]
 
 # Function to filter skills to only include the top 10 most common, and remove duplicates
 def filter_top_10_skills(skills_list):
     # Remove duplicates before filtering and only keep skills that are in the top 10 most common
-    filtered_skills = [skill for skill in set(skills_list) if skill.strip() in top_10_skills]
+    filtered_skills = [skill for skill in set(skills_list)]
     return filtered_skills
 
 # Apply the filtering to each job's skill list

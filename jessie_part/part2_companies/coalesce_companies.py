@@ -29,7 +29,7 @@ def top_10_skills(skills_list):
     return ', '.join(top_skills)
 
 # Apply the top_10_skills function to get the top 10 skills for each company
-coalesced_by_company['top_skills'] = coalesced_by_company['top_skills'].apply(top_10_skills)
+# coalesced_by_company['top_skills'] = coalesced_by_company['top_skills'].apply(top_10_skills)
 
 # Remove any companies that have no skills
 coalesced_by_company = coalesced_by_company[coalesced_by_company['top_skills'].str.strip() != '']

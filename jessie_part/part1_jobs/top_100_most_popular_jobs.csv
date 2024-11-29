@@ -1,75 +1,87 @@
 title,filtered_skills
-Software Implementation Consultant,problem-solving collaboration communication
-Solutions Analyst,leadership collaboration
-Accountant,communication
-Account Executive,leadership planning collaboration problem-solving automation agile organization communication
-Account Manager,collaboration communication
-Accounting Manager,planning problem-solving leadership testing communication
-Associate District Manager,agile collaboration
-Back End Developer,programming
-Business Analyst,leadership collaboration problem-solving automation agile organization testing communication
-Business Development Representative,problem-solving collaboration automation organization communication
-Chief Technology Officer,leadership planning programming collaboration problem-solving automation agile organization communication
-Cloud Architect,automation agile programming collaboration
-Cloud Engineer,leadership programming automation agile organization communication
-Content Marketing Manager,agile planning problem-solving communication
-Controls Engineer,automation programming problem-solving communication
-Customer Success Manager,planning programming problem-solving collaboration organization communication
-Data Analyst,leadership planning programming collaboration problem-solving automation organization testing communication
-Data Architect,collaboration leadership agile programming testing communication
-Data Engineer,programming automation agile organization communication
-Data Platform Engineer,problem-solving collaboration automation agile programming communication
-Data Scientist,problem-solving agile programming testing communication
-Demand Marketing Manager – SMB & Ecommerce,automation leadership
-Desktop Test Engineer,planning automation agile testing communication
-DevOps Consultant,problem-solving collaboration automation agile testing communication
-DevOps Engineer,problem-solving collaboration automation agile programming testing communication
-Director of Business Development,planning communication
-Dotnet Developer,leadership agile programming testing communication
-Enterprise Account Executive,leadership communication
-Enterprise Customer Success Manager,programming problem-solving collaboration agile organization communication
-Enterprise Sales Executive,leadership planning automation organization communication
-Enterprise Select Account Executive - Retail,organization planning
-Executive Assistant,planning collaboration problem-solving leadership organization communication
-Finance Manager,leadership planning automation organization communication
-Frontend Developer,problem-solving automation agile programming testing communication
-Full Stack Engineer,problem-solving collaboration agile programming testing communication
-Inside Sales Representative,testing communication
-Java Developer,leadership agile programming testing communication
-Junior Employee Support Specialist,communication
-Lead Ruby on Rails Engineer,planning collaboration problem-solving
-Machine Learning Engineer,agile
-Manager Revenue Development,leadership planning collaboration communication
-Mechanical Engineer,problem-solving communication
-Network Engineer,planning collaboration problem-solving leadership agile communication
-Onsite Medical Representative,testing communication
-Partner Sales Director Emerging Business,leadership
-Principal Software Engineer,planning programming problem-solving leadership agile organization testing communication
-Procurement Agent,automation agile communication
-Product Manager,planning collaboration problem-solving leadership agile organization testing communication
-Product Marketing Manager,planning problem-solving collaboration leadership communication
-Product Success Manager,agile communication
-Product Success Specialist,agile communication
-Program Manager,planning collaboration problem-solving leadership agile organization communication
-Project Manager,problem-solving agile organization testing communication
-Python Developer,problem-solving agile programming testing communication
-Quality Assurance Engineer,planning problem-solving automation agile testing communication
-Ruby on Rails Engineer,planning collaboration problem-solving
-Sales Account Executive,planning collaboration problem-solving leadership agile organization communication
-Sales Consultant,organization communication
-Sales Development Representative,automation agile leadership communication
-Sales Engineer,leadership organization problem-solving
-Sales Executive,leadership organization communication
-Sales Operations Analyst,automation planning communication
-Salesforce Developer,problem-solving automation agile testing communication
-Salesforce Project Manager - Remote,communication
-Account Executive,automation agile collaboration leadership
-Account Executive,automation communication
-Data Analyst,leadership planning problem-solving automation agile organization testing
-Data Engineer,planning problem-solving collaboration agile programming testing communication
-Data Scientist,leadership programming problem-solving communication
-DevOps Engineer,planning problem-solving automation agile testing communication
-Software Developer,problem-solving automation programming testing communication
-Software Engineer,leadership programming collaboration problem-solving automation agile organization testing communication
-Technical Program Manager,planning collaboration problem-solving leadership agile organization communication
-Web Developer,programming
+AI Content Writer,flexibility writing
+Account Manager,collaboration networking presentation swift flexibility innovation communication negotiation organization writing
+Accounting Manager,testing planning flexibility interpersonal leadership communication problem-solving
+Administrative Coordinator,collaboration planning interpersonal innovation communication organization problem-solving
+Android Developer,kotlin java innovation debugging communication scripting
+Application Developer,testing collaboration react devops programming communication problem-solving
+Back End Developer,php creativity java c# flexibility spring programming laravel writing sql
+Backend Engineer,django microservices kubernetes innovation devops empathy rust
+Business Analyst,testing collaboration agile critical-thinking automation interpersonal presentation leadership adaptability devops empathy typescript communication negotiation organization writing sql problem-solving
+Business Development Representative,adaptability go communication listening initiative negotiation time-management networking decision-making teamwork problem-solving collaboration presentation automation planning innovation cybersecurity flexibility interpersonal leadership organization
+Business Intelligence Analyst,python collaboration decision-making critical-thinking programming communication scripting sql problem-solving
+Chief Technology Officer,collaboration agile decision-making automation c# innovation interpersonal leadership devops planning problem-solving programming communication scripting organization sql nosql
+Civil Engineer,interpersonal communication problem-solving planning
+Cloud Architect,collaboration agile networking automation presentation innovation programming teamwork communication scripting sql
+Cloud Engineer,ansible collaboration agile automation leadership adaptability devops spring programming terraform communication javascript scripting organization sql problem-solving
+Content Marketing Manager,agile planning interpersonal leadership communication initiative writing problem-solving
+Controls Engineer,automation programming teamwork go communication problem-solving
+Customer Success Manager,python go communication listening creativity problem-solving testing collaboration presentation planning innovation empathy scripting agile flexibility interpersonal leadership programming organization
+Data Analyst,python communication writing creativity decision-making c# teamwork r sql problem-solving testing collaboration automation planning innovation scripting agile flexibility interpersonal leadership programming organization
+Data Architect,testing python collaboration agile decision-making innovation leadership programming communication sql nosql
+Data Engineer,python c++ go communication initiative writing creativity java c# blockchain sql problem-solving automation innovation spark hadoop agile flexibility programming organization
+Data Platform Engineer,sql python collaboration agile microservices automation flexibility kubernetes spark docker programming go communication writing containerization problem-solving
+Data Scientist,testing python agile decision-making presentation flexibility innovation algorithms empathy programming communication r scripting organization sql problem-solving
+Desktop Test Engineer,testing agile planning automation communication
+DevOps Consultant,testing collaboration agile automation innovation devops communication scripting containerization problem-solving
+DevOps Engineer,ansible python communication networking creativity encryption node.js kafka terraform problem-solving testing collaboration automation innovation scripting cybersecurity agile devops programming containerization
+Dotnet Developer,jenkins testing agile c# leadership devops nosql programming debugging communication javascript angular css writing asp.net sql hardware motivation
+Embedded Software Engineer,collaboration agile bash automation networking problem-solving algorithms programming debugging communication scripting hardware
+Enterprise Customer Success Manager,collaboration agile interpersonal innovation empathy programming communication node.js organization problem-solving html
+Event Marketing Specialist,negotiation leadership planning initiative
+Field Engineer,python presentation planning interpersonal automation debugging communication r problem-solving
+Finance Manager,decision-making automation flexibility interpersonal leadership planning presentation teamwork communication organization
+Financial Analyst,decision-making planning spark communication organization problem-solving
+Frontend Developer,testing collaboration agile automation c# flexibility spring programming debugging communication javascript hadoop css writing problem-solving
+Frontend Engineer,collaboration agile communication javascript express problem-solving
+Full Stack Engineer,testing python collaboration agile microservices java react spring programming debugging communication javascript ruby sql problem-solving
+Global Customer Support Specialist,teamwork communication agile
+Implementation Project Manager,collaboration creativity presentation interpersonal leadership communication organization problem-solving
+Information Security Engineer,python collaboration agile presentation automation interpersonal innovation java kubernetes leadership resilience c++ communication scripting cybersecurity
+Inside Sales Representative,testing interpersonal innovation communication initiative
+Java Architect,python microservices agile java spring communication kafka jenkins sql nosql
+Java Developer,testing python microservices agile networking java swift leadership spring programming go communication initiative angular kafka writing
+Legal Contracts Negotiator ,interpersonal leadership communication organization
+Machine Learning Engineer,python microservices c++ debugging communication keras pytorch flask sql collaboration innovation hadoop agile flexibility devops programming tensorflow express organization
+Manufacturing Engineer,programming communication problem-solving listening
+Marketing Director,presentation planning interpersonal communication problem-solving
+Mechanical Engineer,flexibility communication problem-solving
+Media Planner,interpersonal writing communication planning
+Network Engineer,collaboration agile networking automation planning leadership devops encryption communication scripting problem-solving
+Network and Systems Administrator,organization communication networking automation
+Office Associate,time-management communication multitasking
+Onsite Medical Representative,testing leadership communication organization
+Principal Software Engineer,python microservices c++ machine-learning communication javascript initiative angular css jenkins asp.net networking java c# bootstrap node.js sql problem-solving testing planning innovation algorithms typescript cybersecurity agile flexibility leadership programming organization containerization nosql
+Procurement Agent,initiative communication agile automation
+Product Manager,testing collaboration agile presentation planning flexibility innovation leadership communication initiative organization writing problem-solving
+Product Marketing Manager,collaboration resilience creativity planning interpersonal innovation leadership presentation empathy go communication bootstrap initiative writing problem-solving
+Product Marketing Specialist,flexibility communication empathy
+Program Manager,collaboration agile decision-making planning interpersonal innovation leadership problem-solving go communication listening organization writing hardware motivation
+Project Manager,testing problem-solving agile presentation planning interpersonal adaptability communication organization hardware
+Python Developer,python kubernetes adaptability docker communication javascript writing jenkins virtualization java teamwork flask sql problem-solving testing innovation scripting agile flexibility programming nosql
+Quality Assurance Engineer,testing python agile creativity automation java innovation planning go communication problem-solving html
+React Native Developer,testing collaboration agile react programming debugging communication javascript
+Ruby on Rails Engineer,collaboration presentation planning react bootstrap ruby node.js writing problem-solving
+Sales Consultant,decision-making presentation interpersonal innovation communication organization
+Sales Development Representative,go communication listening initiative negotiation writing networking creativity sql collaboration automation spark empathy agile resilience flexibility interpersonal leadership organization
+Sales Director,agile planning leadership communication negotiation
+Sales Engineer,problem-solving presentation flexibility innovation leadership communication organization writing sql hardware cybersecurity
+Sales Operations Analyst,automation planning adaptability teamwork go communication organization
+Security Engineer,leadership algorithms programming encryption communication problem-solving
+Site Reliability Engineer,ansible adaptability debugging communication go initiative writing networking terraform sql problem-solving automation planning innovation scripting flexibility devops programming organization
+Social Media Manager,collaboration creativity interpersonal innovation empathy communication organization writing
+Software Developer,automation c# flexibility innovation java programming teamwork debugging communication writing problem-solving
+Software Development Engineer,collaboration agile java flexibility innovation interpersonal planning next.js programming typescript communication organization problem-solving
+Software Engineer,python docker c++ debugging communication go javascript angular laravel writing asp.net networking creativity decision-making c# java blockchain teamwork bootstrap kafka node.js sql hardware problem-solving testing collaboration react automation innovation spark algorithms spring typescript scripting php agile flexibility interpersonal programming express organization nosql
+Software Support Specialist,virtualization networking creativity interpersonal empathy communication listening writing
+Solution Architect,testing collaboration agile presentation react interpersonal innovation leadership devops empathy communication kafka writing sql hardware
+Solutions Engineer,testing collaboration networking creativity automation interpersonal presentation leadership communication negotiation
+Strategic Finance Analyst,decision-making interpersonal innovation leadership communication organization sql
+Technical Account Manager,python decision-making flexibility interpersonal teamwork debugging communication sql problem-solving
+Technical Business Analyst,testing agile critical-thinking interpersonal communication writing sql problem-solving
+Technical Program Manager,collaboration agile problem-solving planning interpersonal innovation leadership communication organization writing hardware
+Technical Project Manager,collaboration agile decision-making planning interpersonal presentation leadership devops communication organization problem-solving
+Technical Support Specialist,testing collaboration networking automation interpersonal planning leadership go communication scripting organization sql problem-solving
+Test Engineer,testing python collaboration networking problem-solving flexibility perl programming go debugging scripting initiative organization writing hardware motivation
+Web Developer,c# writing flexibility programming
+iOS Developer,collaboration swift leadership programming debugging communication javascript problem-solving
