@@ -6,7 +6,7 @@ import numpy as np
 G = nx.read_gml('../../graphs/skills_graph.gml')
 
 # Perform Louvain clustering
-communities = nx.algorithms.community.louvain_communities(G, seed=18755)
+communities = nx.algorithms.community.louvain_communities(G, seed=42)
 
 # Create a 3D layout for the graph
 pos_3d = nx.spring_layout(G, dim=3, seed=42)  # 3D spring layout
@@ -19,16 +19,16 @@ node_z = np.array([pos_3d[node][2] for node in G.nodes])
 # Generate colors for nodes with gradual color change based on their community
 color_gradient = [
     "#FF9999",  # Light red
-    "#FFCC99",  # Peach
+    "#99CCFF",  # Light blue
     "#FFFF99",  # Light yellow
     "#CCFF99",  # Light green
     "#99FFCC",  # Aquamarine
-    "#99CCFF",  # Light blue
     "#CC99FF",  # Lavender
     "#FF99CC",  # Pink
     "#FF6666",  # Red
     "#66B2FF",  # Sky blue
 ]
+
 
 node_colors = []
 node_size = 15  # Larger node size for better visibility
