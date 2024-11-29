@@ -16,16 +16,17 @@ def process_industry_skills(group):
             skill_list = [skill.strip() for skill in row['skills'].replace('"', '').split(',')]
             combined_skills.extend(skill_list)
     
-    # Count the frequency of each skill using Counter
-    skill_counts = Counter(combined_skills)
+    # # Count the frequency of each skill using Counter
+    # skill_counts = Counter(combined_skills)
     
-    # Get the top 10 most common skills, based on their count
-    top_10_skills = [skill for skill, count in skill_counts.most_common(10)]
+    # # Get the top 10 most common skills, based on their count
+    # top_10_skills = [skill for skill, count in skill_counts.most_common(10)]
     
-    # Combine the top 10 skills into a string and return the processed result
-    return pd.Series({
-        'top_10_skills': ', '.join(top_10_skills)  # Top 10 skills combined into a single string
-    })
+    # # Combine the top 10 skills into a string and return the processed result
+    # return pd.Series({
+    #     'top_10_skills': ', '.join(top_10_skills)  # Top 10 skills combined into a single string
+    # })
+    return combined_skills
 
 # Group by industry_name and apply the process_industry_skills function
 df_grouped = df.groupby('industry_name').apply(process_industry_skills)

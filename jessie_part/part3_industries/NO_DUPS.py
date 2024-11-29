@@ -13,7 +13,7 @@ def remove_duplicates_in_column(column_name):
         df.at[idx, column_name] = unique_skills  # Update the value in the DataFrame
 
 # Specify the column where you want to remove duplicates (e.g., 'skills')
-remove_duplicates_in_column('top_10_skills')
+remove_duplicates_in_column('top_skills')
 
 # Save the updated DataFrame to a new CSV file
 df.to_csv('nodes.csv', index=False)
