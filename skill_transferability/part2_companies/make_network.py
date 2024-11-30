@@ -2,22 +2,23 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 from community import community_louvain  # Louvain community detection
-import numpy as np
 import random
+import numpy as np 
 import re
 
 random.seed(18755)
 np.random.seed(18755)
 
+# Load the dataset with job titles and skills
 # Read the CSV file with proper handling for quoted text
-df = pd.read_csv("nodes.csv", quotechar='"', on_bad_lines='skip')
+df = pd.read_csv("well_known_company.csv", quotechar='"', on_bad_lines='skip')
 
 # Create a graph
 G = nx.Graph()
 
 # Add nodes (job titles)
 for index, row in df.iterrows():
-    title = row['industry_name']
+    title = row['company_name']
     G.add_node(title)
 
 # Calculate shared skills between job titles and add edges with weights
@@ -26,11 +27,11 @@ for i, row1 in df.iterrows():
         if i >= j:  # Avoid duplicate pairs (i, j)
             continue
         # Find common skills
-        skills1 = set(re.split(r',\s*', row1['top_10_skills']))
-        skills2 = set(re.split(r',\s*', row2['top_10_skills']))
+        skills1 = set(re.split(r',\s*', row1['top_skills']))
+        skills2 = set(re.split(r',\s*', row2['top_skills']))
         common_skills = skills1.intersection(skills2)
         if len(common_skills) > 0:  # Only add an edge if there are common skills
-            G.add_edge(row1['industry_name'], row2['industry_name'], weight=len(common_skills), common_skills=common_skills)
+            G.add_edge(row1['company_name'], row2['company_name'], weight=len(common_skills), common_skills=common_skills)
 
 # Remove disconnected nodes (degree == 0)
 nodes_to_remove = [node for node, degree in G.degree() if degree == 0]
@@ -59,10 +60,11 @@ def cluster_connection_strength(G, cluster_nodes):
     for i, node_u in enumerate(cluster_nodes):
         for node_v in cluster_nodes[i+1:]:  # Ensure no duplicate pairs (i, j) and (j, i)
             if G.has_edge(node_u, node_v):  # Check if there is an edge
-                edge_weight = G[node_u][node_v].get('weight', 1)  # Default weight 1 if no weight exists
-                total_weight += edge_weight
-                edge_weights.append(edge_weight)
-                num_edges += 1
+                edge_weight = G[node_u][node_v].get('weight', 0)  # Default weight 1 if no weight exists
+                if edge_weight != 0:
+                    total_weight += edge_weight
+                    edge_weights.append(edge_weight)
+                    num_edges += 1
     
     # Calculate the average edge weight
     avg_edge_weight = total_weight / num_edges if num_edges > 0 else 0
@@ -131,6 +133,40 @@ def calculate_avg_weight(G, cluster):
     average_weight = total_weight / num_edges if num_edges > 0 else 0
     return average_weight
 
+def average_cluster_strength(G, cluster):
+    """
+    Calculates the average strength of a cluster in a graph.
+
+    Strength is defined as the ratio of the total weighted edges within the 
+    cluster to the total weighted edges (inside and outside the cluster) 
+    for each node.
+
+    :param G: NetworkX graph object
+    :param cluster: List of nodes in the cluster
+    :return: The average strength of the cluster
+    """
+    total_strength = 0
+    for node in cluster:
+        # Initialize weights
+        internal_weight = 0
+        total_weight = 0
+
+        # Iterate through the node's neighbors
+        for neighbor in G.neighbors(node):
+            edge_weight = G[node][neighbor].get('weight', 0)  # Default weight is 1
+            total_weight += edge_weight
+            if neighbor in cluster:
+                internal_weight += edge_weight
+
+        # Calculate node's strength
+        node_strength = internal_weight / total_weight if total_weight > 0 else 0
+        total_strength += node_strength
+
+    # Return the average strength for the cluster
+    return total_strength / len(cluster) if cluster else 0
+
+
+
 def print_communities(partition):
     """
     Prints the nodes in each community from a partition.
@@ -148,9 +184,10 @@ def print_communities(partition):
     for community_id, nodes in communities.items():
         density = calculate_cluster_density(G, nodes)
         avg_weight = calculate_avg_weight(G, nodes)
-        strength = cluster_connection_strength(G, nodes)
+        var_weight = cluster_connection_strength(G, nodes)
         btwn_cent = cluster_betweenness_centrality(G, nodes)
-        print(f"Community {community_id}: density {density} avg_weight {avg_weight} weight_var {strength} btwn_cent{btwn_cent} \n{nodes}")
+        strength = average_cluster_strength(G, nodes)
+        print(f"Community {community_id}: density {density} avg_weight {avg_weight} weight_var {var_weight} btwn_cent{btwn_cent} strength {strength}\n{nodes}")
 
 def get_degree_info():
     # Calculate the degree distribution
@@ -191,11 +228,80 @@ def find_avg_similarity():
 
     # Print the average edge weight
     print(f"Average edge weight (including disconnected edges): {average_edge_weight:.4f}")
+    print("connectivity", len(G.edges)/total_possible_edges)
 
+def find_hubs():
+    # Compute degree and weighted degree for each node
+    weighted_degrees = []
+    degrees = []
+    node_stats = []
+    for node in G.nodes():
+        degree = G.degree(node)  # Number of edges connected to the node
+        weighted_degree = sum(G[node][neighbor].get('weight', 0) for neighbor in G.neighbors(node))  # Sum of edge weights
+        node_stats.append((node, degree, weighted_degree))
+        weighted_degrees.append(weighted_degree)
+        degrees.append(degree)
+
+    # Sort nodes by degree and weighted degree
+    top_degree = sorted(node_stats, key=lambda x: x[1], reverse=True)[:10]
+    top_weighted_degree = sorted(node_stats, key=lambda x: x[2], reverse=True)[:10]
+    return top_degree, top_weighted_degree, degrees, weighted_degrees
+
+    # # Print the top 10 nodes by degree
+    # print("Top 10 nodes by degree:")
+    # for node, degree, _ in top_degree:
+    #     print(f"Node: {node}, Degree: {degree}")
 print("\nLouvain Communities:")
 print_communities(partition)
 
 find_avg_similarity()
+
+top_degree, top_weighted_degree, degrees, weighted_degrees = find_hubs()
+print("Top 10 nodes by weighted degree:")
+for node, _, weighted_degree in top_weighted_degree:
+    print(f"Node: {node}, Degree: {weighted_degree}")
+
+print("Top 10 nodes by degree:")
+for node, degree, _ in top_degree:
+    print(f"Node: {node}, Degree: {degree}")
+
+print("average weight", sum(weighted_degrees)/len(weighted_degrees))
+print("average degree", sum(degrees)/len(degrees))
+print(f"Number of nodes in the graph: {len(G.nodes)}")
+
+# Step 1: Calculate the frequency of each weighted degree
+weighted_degree_values = sorted(set(weighted_degrees))  # Unique weighted degree values
+weighted_degree_counts = [weighted_degrees.count(d) for d in weighted_degree_values]  # Frequency of each degree
+
+# Step 2: Plot the weighted degree distribution
+plt.figure(figsize=(8, 6))
+plt.hist(weighted_degrees, bins=20, color='blue', alpha=0.7, edgecolor='black')  # Adjust 'bins' for grouping
+
+# Step 2: Add labels and title
+plt.title("Weighted Degree Distribution (Histogram)", fontsize=16)
+plt.xlabel("Weighted Degree", fontsize=14)
+plt.ylabel("Frequency", fontsize=14)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Show the plot
+plt.show()
+
+# Step 1: Calculate the frequency of each weighted degree
+degree_values = sorted(set(degrees))  # Unique weighted degree values
+degree_counts = [degrees.count(d) for d in degree_values]  # Frequency of each degree
+
+# Step 2: Plot the weighted degree distribution
+plt.figure(figsize=(8, 6))
+plt.hist(degrees, bins=20, color='blue', alpha=0.7, edgecolor='black')  # Adjust 'bins' for grouping
+
+# Step 2: Add labels and title
+plt.title("Degree Distribution (Histogram)", fontsize=16)
+plt.xlabel("Degree", fontsize=14)
+plt.ylabel("Frequency", fontsize=14)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Show the plot
+plt.show()
 
 # this is not super useful since it just counts all the nodes with the most popular skill
 # get_degree_info()
@@ -204,7 +310,7 @@ find_avg_similarity()
 plt.figure(figsize=(14, 14))  # Increased figure size
 
 # Get positions for nodes using spring layout (better for readability)
-pos = nx.spring_layout(G, k=6, iterations=100)  # Adjusted iterations and spring strength
+pos = nx.spring_layout(G, k=2, iterations=100)  # Adjusted iterations and spring strength
 
 # Draw the nodes with colors based on community assignment
 community_colors = [partition[node] for node in G.nodes()]
@@ -218,15 +324,15 @@ nx.draw_networkx_edges(G, pos, edgelist=edges, width=weights, alpha=0.7, edge_co
 # Draw the labels (job titles)
 nx.draw_networkx_labels(G, pos, font_size=6, font_weight='bold', font_color='black')
 
-plt.title('Job Titles Network with Louvain Communities (No Disconnected Nodes)')
+plt.title('Companies Network with Louvain Communities (No Disconnected Nodes)')
 plt.axis('off')  # Turn off axis
 
 # Save the figure as a PDF file
-# plt.savefig("job_titles_network.pdf", format="pdf")
+# plt.savefig("companies_network.pdf", format="pdf")
 
 # Optionally, you can save it as PNG or JPEG as well
-# plt.savefig("job_titles_network.png", format="png")
-# plt.savefig("job_titles_network.jpeg", format="jpeg")
+# plt.savefig("companies_network.png", format="png")
+# plt.savefig("companies_network.jpeg", format="jpeg")
 
 # Close the plot to free up memory
 # plt.close()
@@ -263,4 +369,4 @@ def highlight(highlight_skill):
 
     plt.show()
 
-highlight(["hardware"])
+# highlight(["c"])
