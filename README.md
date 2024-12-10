@@ -50,4 +50,4 @@ Clusters generated from **Complementary Skills** and **Skills Transferability** 
 ## Analysis
 - `basic_analysis.ipynb`: Milestone 1 basic analysis of distribution of jobs based on geolocation information.
 - `ravasz_algorithm_for_location.py`: Applies the Ravasz algorithm to generate clusters based on the geographical distances between job postings. These clusters are used for visualization in `location_visualization.ipynb`
-- `location_visualizations.ipynb`:
+- `location_visualizations.ipynb`: Produces visualization of clusters generated from previous sections on the North America map.
