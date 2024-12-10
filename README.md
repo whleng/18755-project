@@ -1,12 +1,31 @@
+# About Project
+#TODO
+The purpose of the project is bla bla bla
+
+# General Data Cleaning
+- Download dataset from https://www.kaggle.com/datasets/arshkon/linkedin-job-postings/data
+- Make sure the dataset is in the `data/` folder, named `data/postings.csv`
+
+## Data Processing Scripts
+Data processing scripts are located under `general_data_cleaning/`
+- `job_scraper.ipynb`: Parses `postings.csv` to include the skills associated with each job posting. Output is `data/postings_parsed.csv` 
+- `filter_swe_jobs.py`: Creates a filtered dataset of all the tech jobs, including jobs within the "Software Development" industry and jobs in all industries with titles related to "Software Engineer". Output is `combined_tech_postings.csv`
+
+## Processed Data
+- `skills_lowercase.json`: Self-created list of common soft skills and technical skills. Used for `job_scraper.ipynb` to assign skills to each job posting.
+- `combined_tech_postings.csv`: Filtered dataset of all the tech jobs.
+- `sde_postings_with_location.csv`: Filtered dataset of jobs in the "Software Development" industry.
+- `swe_postings_with_location.csv`: Filtered dataset of jobs with job title related to "Software Engineer" across all industries. Location data (latitude and longitude is also included)
+- `filtered_1000_postings_with_location.csv`: Filtered dataset by selecting top 1000 jobs in each industry from `swe_postings_with_location.csv`
+
+
 # Complementary Skills
 
 ## Data Pre-processing
 
-1. Make sure the dataset is in the data/ folder, named "data/postings.csv"
-2. Run the file job_scraper.ipynb
-3. To create the .gml graph and view the basic results, run create_network.ipynb
-4. To view the louvain clustering algorithm, enter the louvain_clustering/ folder and run louvain_clustering_plots.py. THe output should be saved to figures/
-5. To view the ravasz agglomerative clustering algorithm, enter the agglomerative_clustering/ folder and run ravasz_algorithm.py
+1. To create the .gml graph and view the basic results, run create_network.ipynb
+2. To view the louvain clustering algorithm, enter the `louvain_clustering/` folder and run `louvain_clustering_plots.py`. THe output should be saved to `figures/`
+3. To view the ravasz agglomerative clustering algorithm, enter the `agglomerative_clustering/` folder and run `ravasz_algorithm.py`
 
 # Skill Transferability
 
@@ -15,3 +34,6 @@
 - under each of the sub folders, there is a script called make_network.py to generate the network and corresponding metrics
 - optionally, there is a function called highlight, which takes in an array of skills and highlights the edges containing these skills
 - the remaining code is related to data filtering
+
+# Regional Analysis
+## Data Pre-processing
