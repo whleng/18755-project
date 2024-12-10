@@ -1,0 +1,131 @@
+================ Community Analysis ================
+
+Community 1: 328 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: IN, Degree: 1061
+Node: NC, Degree: 1061
+Node: PA, Degree: 1061
+Node: OH, Degree: 1061
+Node: NY, Degree: 1061
+Node: NC, Degree: 1061
+Node: MD, Degree: 1061
+Node: MI, Degree: 1061
+Node: VA, Degree: 1061
+Node: DE, Degree: 1061
+=========================================
+
+Community 2: 139 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: TX, Degree: 1061
+Node: TX, Degree: 1061
+Node: TX, Degree: 1061
+Node: TX, Degree: 1061
+Node: TX, Degree: 1061
+Node: MS, Degree: 1061
+Node: MS, Degree: 1061
+Node: TX, Degree: 1061
+Node: TX, Degree: 1061
+Node: TX, Degree: 1061
+=========================================
+
+Community 3: 239 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: CA, Degree: 1061
+Node: OR, Degree: 1061
+Node: ID, Degree: 1061
+Node: CA, Degree: 1061
+Node: AZ, Degree: 1061
+Node: CA, Degree: 1061
+Node: CA, Degree: 1061
+Node: CA, Degree: 1061
+Node: NV, Degree: 1061
+Node: CA, Degree: 1061
+=========================================
+
+Community 4: 75 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: IL, Degree: 1061
+Node: IL, Degree: 1061
+Node: MI, Degree: 1061
+Node: IL, Degree: 1061
+Node: IN, Degree: 1061
+Node: IL, Degree: 1061
+Node: IN, Degree: 1061
+Node: IL, Degree: 1061
+Node: IL, Degree: 1061
+Node: KY, Degree: 1061
+=========================================
+
+Community 5: 110 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: KS, Degree: 1061
+Node: KS, Degree: 1061
+Node: IA, Degree: 1061
+Node: IL, Degree: 1061
+Node: IA, Degree: 1061
+Node: MN, Degree: 1061
+Node: MN, Degree: 1061
+Node: IL, Degree: 1061
+Node: MN, Degree: 1061
+Node: MN, Degree: 1061
+=========================================
+
+Community 6: 70 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+Node: FL, Degree: 1061
+=========================================
+
+Community 7: 4 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: AL, Degree: 1058
+Node: AL, Degree: 1058
+Node: AL, Degree: 1058
+Node: AL, Degree: 1058
+=========================================
+
+Community 8: 55 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: GA, Degree: 1061
+Node: AL, Degree: 1061
+Node: GA, Degree: 1061
+Node: SC, Degree: 1061
+Node: GA, Degree: 1061
+Node: TN, Degree: 1061
+Node: SC, Degree: 1061
+Node: AL, Degree: 1061
+Node: GA, Degree: 1061
+Node: SC, Degree: 1061
+=========================================
+
+Community 9: 42 nodes
+Cut threshold: 15
+Top 10 nodes by degree:
+Node: NE, Degree: 1061
+Node: CO, Degree: 1061
+Node: CO, Degree: 1061
+Node: TX, Degree: 1061
+Node: CO, Degree: 1061
+Node: WY, Degree: 1061
+Node: NM, Degree: 1061
+Node: CO, Degree: 1061
+Node: CO, Degree: 1061
+Node: KS, Degree: 1061
+=========================================
+

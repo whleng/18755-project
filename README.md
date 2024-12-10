@@ -9,11 +9,11 @@ The purpose of the project is bla bla bla
 ## Data Processing Scripts
 Data processing scripts are located under `general_data_cleaning/`
 - `job_scraper.ipynb`: Parses `postings.csv` to include the skills associated with each job posting. Output is `data/postings_parsed.csv` 
-- `filter_swe_jobs.py`: Creates a filtered dataset of all the tech jobs, including jobs within the "Software Development" industry and jobs in all industries with titles related to "Software Engineer". Output is `combined_tech_postings.csv`
+- `filter_swe_jobs.py`: Creates a filtered dataset of all the tech jobs, including jobs within the "Software Development" industry and jobs in all industries with titles related to "Software Engineer". 
 
 ## Processed Data
 - `skills_lowercase.json`: Self-created list of common soft skills and technical skills. Used for `job_scraper.ipynb` to assign skills to each job posting.
-- `combined_tech_postings.csv`: Filtered dataset of all the tech jobs.
+- `combined_tech_postings.csv`: Filtered dataset of all the tech jobs ("Software Development" industry **and** job titles with "Software Engineer")
 - `sde_postings_with_location.csv`: Filtered dataset of jobs in the "Software Development" industry.
 - `swe_postings_with_location.csv`: Filtered dataset of jobs with job title related to "Software Engineer" across all industries. Location data (latitude and longitude is also included)
 - `filtered_1000_postings_with_location.csv`: Filtered dataset by selecting top 1000 jobs in each industry from `swe_postings_with_location.csv`
@@ -36,4 +36,18 @@ Data processing scripts are located under `general_data_cleaning/`
 - the remaining code is related to data filtering
 
 # Regional Analysis
+Supplementary data located under `txt_files/` folder
+
 ## Data Pre-processing
+- Top 1000
+
+## Clusters
+Clusters generated from **Complementary Skills** and **Skills Transferability** sections were visualized.
+- `location_clusters.txt`: Clusters generated based on ravasz algorithm using geographical coordinates 
+- `skills_to_clusters.txt`: Clusters from Complementary Skills
+- `titles_to_clusters.txt`: Clusters from Skills Transferability
+
+## Analysis
+- `basic_analysis.ipynb`: Milestone 1 basic analysis of distribution of jobs based on geolocation information.
+- `ravasz_algorithm_for_location.py`: Applies the Ravasz algorithm to generate clusters based on the geographical distances between job postings. These clusters are used for visualization in `location_visualization.ipynb`
+- `location_visualizations.ipynb`:
