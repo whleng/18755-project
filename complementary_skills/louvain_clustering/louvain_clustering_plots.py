@@ -82,7 +82,7 @@ for i, (community_id, percentage) in enumerate(community_percentages):
 plt.legend(
     handles=handles, 
     scatterpoints=1, 
-    frameon=True, 
+    frameon=True,
     fontsize=10, 
     loc="lower left", 
     title="Communities by Percentage"
@@ -92,5 +92,5 @@ plt.legend(
 plt.title("Louvain Communities Visualization", fontsize=16)
 
 # Save the figure
-plt.savefig("figures/louvain_community_visualization_no_self_loops.png", dpi=300)
+plt.savefig("figures/louvain_community_visualization_no_self_loops.png")
 plt.show()
