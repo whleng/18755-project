@@ -22,26 +22,21 @@ job_industries.columns = job_industries.columns.str.strip()
 
 # Find the Industry_id for "Software Development"
 software_dev_industry = industries[industries['industry_name'] == "Software Development"]
-if software_dev_industry.empty:
-    print("Error: 'Software Development' industry not found in Industries.csv.")
-else:
-    software_dev_industry_id = software_dev_industry['industry_id'].values[0]
+software_dev_industry_id = software_dev_industry['industry_id'].values[0]
 
-    # Merge postings_parsed with job_industries on job_id
-    postings_with_industries = pd.merge(postings_parsed, job_industries, on="job_id")
+# Merge postings_parsed with job_industries on job_id
+postings_with_industries = pd.merge(postings_parsed, job_industries, on="job_id")
 
-    # Filter for postings in the "Software Development" industry
-    software_dev_postings = postings_with_industries[postings_with_industries['industry_id'] == software_dev_industry_id]
+# Filter for postings in the "Software Development" industry
+software_dev_postings = postings_with_industries[postings_with_industries['industry_id'] == software_dev_industry_id]
 
-    # Add in the title to postings_parsed
-    software_dev_postings = pd.merge(software_dev_postings[['job_id', 'skills', 'zip_code']], 
-                                     raw_postings[['title', 'job_id']], on="job_id")
+# Add in the title to postings_parsed
+software_dev_postings = pd.merge(software_dev_postings[['job_id', 'skills', 'zip_code']], 
+                                    raw_postings[['title', 'job_id']], on="job_id")
 
-    # Save the filtered DataFrame to a new CSV file
-    # software_dev_postings.to_csv("Postings_Parsed_Software_Development.csv", index=False)
-    # print("Filtered CSV created: 'Postings_Parsed_Software_Development.csv'")
-
+software_dev_postings.to_csv('sde_postings.csv', index=False)
 print(software_dev_postings.head(5))
+
 
 ############################################################################################
 # Filter jobs with "software engineering" or its variation in the title
@@ -73,6 +68,7 @@ def clean_and_normalize_skills(skills):
 # Clean and normalize the skills column
 swe_postings['skills'] = swe_postings['skills'].apply(clean_and_normalize_skills)
 
+swe_postings.to_csv('swe_postings.csv', index=False)
 print(swe_postings.head(5))
 
 ############################################################################################

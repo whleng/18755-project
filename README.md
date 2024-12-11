@@ -42,10 +42,6 @@ Data processing scripts are located under `general_data_cleaning/`
 
 Supplementary data located under `txt_files/` folder
 
-## Data Pre-processing
-
-- Top 1000
-
 ## Clusters
 
 Clusters generated from **Complementary Skills** and **Skills Transferability** sections were visualized.
