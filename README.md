@@ -1,11 +1,34 @@
+# About the project
+
+The purpose of the project is to find the most suitabe jobs based on one's preferences and skill sets. We analyze this by answering three separate questions, and doing three separate graphical analyses. The first question is to identify additional complementary skills that pair well with our existing ones. Next, we evaluate how our current skills align between jobs, companies, and industries. Finally, we explore jobs, industries, and salary expectations based on a specific location for regional opportunities.
+
+# General Data Cleaning
+
+- Download dataset from https://www.kaggle.com/datasets/arshkon/linkedin-job-postings/data
+- Make sure the dataset is in the `data/` folder, named `data/postings.csv`
+
+## Data Processing Scripts
+
+Data processing scripts are located under `general_data_cleaning/`
+
+- `job_scraper.ipynb`: Parses `postings.csv` to include the skills associated with each job posting. Output is `data/postings_parsed.csv`
+- `filter_swe_jobs.py`: Creates a filtered dataset of all the tech jobs, including jobs within the "Software Development" industry and jobs in all industries with titles related to "Software Engineer".
+
+## Processed Data
+
+- `skills_lowercase.json`: Self-created list of common soft skills and technical skills. Used for `job_scraper.ipynb` to assign skills to each job posting.
+- `combined_tech_postings.csv`: Filtered dataset of all the tech jobs ("Software Development" industry **and** job titles with "Software Engineer")
+- `sde_postings_with_location.csv`: Filtered dataset of jobs in the "Software Development" industry.
+- `swe_postings_with_location.csv`: Filtered dataset of jobs with job title related to "Software Engineer" across all industries. Location data (latitude and longitude is also included)
+- `filtered_1000_postings_with_location.csv`: Filtered dataset by selecting top 1000 jobs in each industry from `swe_postings_with_location.csv`
+
 # Complementary Skills
 
 ## Data Pre-processing
 
-1. Make sure the dataset is in the data/ folder, named "data/postings.csv"
-2. Run the file job_scraper.ipynb
-3. To create the .gml graph and view the basic results, run create_network.ipynb
-4. To view the louvain clustering algorithm, enter the louvain_clustering/ folder and run louvain_clustering_plots.py. THe output should be saved to figures/louvain_community_visualization.png
+1. To create the .gml graph and view the basic results, run create_network.ipynb
+2. To view the louvain clustering algorithm, enter the `louvain_clustering/` folder and run `louvain_clustering_plots.py`. THe output should be saved to `figures/`
+3. To view the ravasz agglomerative clustering algorithm, enter the `agglomerative_clustering/` folder and run `ravasz_algorithm.py`
 
 # Skill Transferability
 
@@ -15,4 +38,24 @@
 - optionally, there is a function called highlight, which takes in an array of skills and highlights the edges containing these skills
 - the remaining code is related to data filtering
 
-# Regional Opportunities
+# Regional Analysis
+
+Supplementary data located under `txt_files/` folder
+
+## Data Pre-processing
+
+- Top 1000
+
+## Clusters
+
+Clusters generated from **Complementary Skills** and **Skills Transferability** sections were visualized.
+
+- `location_clusters.txt`: Clusters generated based on ravasz algorithm using geographical coordinates
+- `skills_to_clusters.txt`: Clusters from Complementary Skills
+- `titles_to_clusters.txt`: Clusters from Skills Transferability
+
+## Analysis
+
+- `basic_analysis.ipynb`: Milestone 1 basic analysis of distribution of jobs based on geolocation information.
+- `ravasz_algorithm_for_location.py`: Applies the Ravasz algorithm to generate clusters based on the geographical distances between job postings. These clusters are used for visualization in `location_visualization.ipynb`
+- `location_visualizations.ipynb`: Produces visualization of clusters generated from previous sections on the North America map.
